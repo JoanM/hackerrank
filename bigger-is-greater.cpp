@@ -18,13 +18,12 @@ void solve()
 	{
 		if(s[i] > s[i - 1])
 		{
-			string rest = s.substr(i);
-			sort(rest.begin(), rest.end());
-			int j= 0;
-			for(; j < rest.size() && rest[j] <=  s[i-1]; ++j);
-			std::swap(s[i-1], rest[j]);
+			sort(s.begin()+i, s.end());
+			int j= i;
+			for(; j < s.size() && s[j] <=  s[i-1]; ++j);
+			std::swap(s[i-1], s[j]);
 
-			cout << s.substr(0, i) << rest << endl;
+			cout << s << endl;
 			return;
 		}
 	}
